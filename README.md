@@ -1,6 +1,7 @@
 Getting PUG to work in Webpack
 =
-
+* Need to npm install gulp-pug
+* Need to npm install gulp-change-in-place
 * Need to npm install pug-html-loader
 
 * [Add PUG rules to the webpack.config.js file](https://github.com/jods4/aurelia-webpack-build/issues/22)
