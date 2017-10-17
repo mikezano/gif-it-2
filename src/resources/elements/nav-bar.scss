@@ -1,14 +1,13 @@
 .nav-bar{
-	flex-direction:row-reverse;
+
 	display: flex;
-	align-items: flex-start;    
+	align-items: flex-start;
 	a{color:white;}
 
 	&__logo{
 		align-self:flex-start;
 		color:yellow;
 		margin-right:auto;
-		order:1;
 		margin:4px auto 4px 0;
 		
 	}
