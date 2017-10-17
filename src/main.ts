@@ -11,6 +11,18 @@ Bluebird.config({ warnings: { wForgottenReturn: false } });
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
+    .plugin(PLATFORM.moduleName("aurelia-fetch-client"))
+    .plugin(PLATFORM.moduleName('aurelia-dialog'), config => {
+        config.useDefaults();
+        config.settings.centerHorizontalOnly = false;
+        config.settings.lock = false;
+        //TODO: need to add fading in
+        config.settings.position = (d:HTMLElement,c) => {
+            console.log(d);
+            d.style.top = "50px";
+            console.log(c);
+        };
+    })        
     .feature(PLATFORM.moduleName('resources/index'));
 
   // Uncomment the line below to enable animation.
