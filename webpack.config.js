@@ -68,7 +68,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
         issuer: /\.[tj]s$/i
-      },
+      },   
       {
         test: /\.pug$/,
         use: [
@@ -80,8 +80,9 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       {
         test: /\.scss$/,
         use: ['css-loader', 'sass-loader'],
-        issuer: /\.html?$/i
+        issuer: /\.[html|pug]?$/i
       },
+  
       { test: /\.html$/i, loader: 'html-loader' },
       { test: /\.ts$/i, loader: 'awesome-typescript-loader', exclude: nodeModulesDir },
       { test: /\.json$/i, loader: 'json-loader' },

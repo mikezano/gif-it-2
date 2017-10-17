@@ -1,0 +1,6 @@
+template
+	require(from="./nav-bar.scss")
+	.nav-bar
+		.nav-bar__logo Logo
+	a.nav-bar__item(repeat.for="route of router.navigation" href.bind="route.href")
+		| ${route.title}

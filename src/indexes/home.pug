@@ -1,0 +1,56 @@
+template
+	require(from="./home.scss")
+	//require(from="../components/modals/gifEmbedDialog.css")
+	section.home.au-animate
+
+	form(
+		action="http://localhost:8000/upload"
+		method="post" 
+		encType="multipart/form-data")
+		input(
+			type="file" 
+			name="gif")
+
+		input(type="submit")
+
+		.gif-player
+			.current-channel
+				img(if.bind="gif" src.bind="gif")
+			img.tv(src="http://prashantsani.com/Misc/codepen/tv.svg" alt="")
+		button.push-button(click.trigger="openDialog()") Embed Gifs Into Your Site
+
+
+
+
+	script.
+		(function(){
+			function httpGetAsync(theUrl, callback) {
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.onreadystatechange = function () {
+					if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+						callback(xmlHttp.responseText);
+				}
+				xmlHttp.open("GET", theUrl, true); // true for asynchronous
+				xmlHttp.send(null);
+			}
+
+			function whatToDo(result) {
+				document.getElementById("random-gif").src = result;
+			}
+
+			alert('hi');
+			console.log("Hello");
+		)}();
+		console.log("why");
+
+
+	//img#random-gif(onload='httpGetAsync("http://localhost:5000/api/Gif/GetRandomGif", whatToDo)')
+//http://stackoverflow.com/questions/36517735/script-tag-in-aurelia-view-is-not-executed
+
+
+
+
+
+
+
+

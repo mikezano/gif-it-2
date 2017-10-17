@@ -1,0 +1,28 @@
+body{
+	background: -webkit-linear-gradient(#303030, #444444 45%, #444444 55%, #303030);
+	background: -o-linear-gradient(#303030, #444444 45%, #444444 55%, #303030);
+	background: linear-gradient(#303030, #444444 45%, #444444 55%, #303030);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	font-family: 'Orbitron', sans-serif;
+	color:white;
+}
+	
+.au-enter{
+	opacity:0;
+}
+
+.au-enter-active{
+	animation: fade-in .5s linear;
+}
+
+@keyframes fade-in{
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+
+	
+.header{
+	color:orange;
+	text-align:center;
+}

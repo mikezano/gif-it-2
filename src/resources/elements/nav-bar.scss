@@ -1,0 +1,26 @@
+.nav-bar{
+	flex-direction:row-reverse;
+	display: flex;
+	align-items: flex-start;    
+	a{color:white;}
+
+	&__logo{
+		align-self:flex-start;
+		color:yellow;
+		margin-right:auto;
+		order:1;
+		margin:4px auto 4px 0;
+		
+	}
+	
+	&__item{
+		$color:white;
+		color:$color;
+		margin:4px 8px;
+		transition: color .2s ease-in;
+
+		&:hover{
+			color: darken($color, 40%);
+		}
+	}
+}

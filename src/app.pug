@@ -1,8 +1,8 @@
 template
+	require(from="./app.scss")
+	require(from="./resources/elements/nav-bar")
+
 	h1 ${message}
-	ul
-		li So
-		li Much
-		li PUG
-		li !
+	nav-bar(router.bind="router")
+	router-view
 

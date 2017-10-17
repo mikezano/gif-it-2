@@ -1,0 +1,108 @@
+template
+	require(from="./gif-embed-dialog.scss")
+
+	ux-dialog.dialog
+		.dialog__title Embed Options
+		ux-dialog-body.dialog__body
+			p 1. Select Size
+			.size-options
+				.size-option
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Small')")
+					p S
+					i.fa.fa-picture-o
+				
+				.size-option
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Medium')")
+					p M
+					i.fa.fa-picture-o.fa-2x
+
+				.size-option
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Large')")
+					p L
+					i.fa.fa-picture-o.fa-3x
+				
+				.size-option
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Custom')")
+					p Custom
+
+			.custom(if.bind="showCustom")
+				.input-field
+					span Width
+					input(value.bind="width")
+					span px
+				.input-field
+					span Height
+					input(value.bind="height")
+					span px
+					ux-dialog-footer
+						p footer
+			p 2. Select Category
+			select(value.bind="category")
+				option(value="All") All
+				option(value="Success") Success
+				option(value="Fail") Fail
+				option(value="Loading") Loading						
+			p 3. Add this markup where gifs will appear
+			pre ${fullEmbedCode}
+			p 4. Add this to your code to trigger gifs
+			pre ${triggerGifCode()}
+		ux-dialog-footer
+			button(click.trigger="controller.cancel()") Cancel
+			button#copy-embed-code OK
+	//ai-dialog#gif-embed
+
+		h1 Embed Options
+		
+		ai-dialog-body
+			p.instruction 1. Select Size
+			.input-field.size-group
+
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Small')")
+					.image-sizing
+						i.fa.fa-picture-o
+						p S
+					
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Medium')")
+					.image-sizing
+						i.fa.fa-picture-o.fa-2x
+						p M
+
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Large')")
+					.image-sizing
+						i.fa.fa-picture-o.fa-3x
+						p L
+
+					input(type="radio" name="size-group" change.delegate="updateEmbedCode('Custom')")
+					.image-sizing Custom
+
+
+			.custom(if.bind="showCustom")
+				.input-field
+					span Width
+					input(value.bind="width")
+					span px
+				.input-field
+					span Height
+					input(value.bind="height")
+					span px
+
+
+			p.instruction 2. Select Category
+			.input-field
+				select(value.bind="category")
+					option(value="All") All
+					option(value="Success") Success
+					option(value="Fail") Fail
+					option(value="Loading") Loading
+
+			p.instruction 3. Add this markup where gifs will appear
+			.input-field
+				pre ${fullEmbedCode}
+
+			p.instruction 4. Add this to your code to trigger gifs
+			.input-field
+				pre ${triggerGifCode()}
+
+		ai-dialog-footer
+			button(click.trigger="controller.cancel()") Cancel
+			button#copy-embed-code OK
