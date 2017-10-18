@@ -17,6 +17,17 @@ Getting PUG to work in Webpack
     }
 ```
 
+Getting SCSS to work in PUG 
+=
+*In webpack.config.js modify the scss rule (*adding .pug*)
+```
+      {
+        test: /\.scss$/,
+        use: ['css-loader', 'sass-loader'],
+        issuer: /\.pug|html?$/i
+      }
+```
+
 References
 * [Add PUG rules to the webpack.config.js file](https://github.com/jods4/aurelia-webpack-build/issues/22)
 * [Add convertOriginToViewUrl to Aurelia bootstrapper](https://github.com/aurelia/skeleton-navigation/issues/396#issuecomment-207823852)
