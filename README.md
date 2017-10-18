@@ -1,14 +1,20 @@
 Getting PUG to work in Webpack
 =
-* Need to npm install gulp-pug
-* Need to npm install gulp-changed-in-place
-* Need to npm install pug-html-loader
-* Need to npm install pug
-* Need process-pug job
-* Need to have this in webpack.config.js ```new AureliaPlugin( {viewsExtensions: '.pug'}),```
+*In webpack.config.js:
+* Modify AurelaPlugin instantiation to  ```new AureliaPlugin({viewsExtensions: '.pug'})```
+* Add rule: ```{ test: /\.pug$/i, loader: [ 'html-loader', 'pug-html-loader' ] }```
 
-* [Add PUG rules to the webpack.config.js file , but change 'loaders' to 'use'](https://github.com/jods4/aurelia-webpack-build/issues/22)
+*In main.ts add: 
+```
+    ViewLocator.prototype.convertOriginToViewUrl = function (origin) {
+      let moduleId = origin.moduleId
+      let id = (moduleId.endsWith('.js') || moduleId.endsWith('.ts')) ? moduleId.substring(0, moduleId.length - 3) : moduleId
+      return id + '.pug'
+    }
+```
 
+References
+* [Add PUG rules to the webpack.config.js file](https://github.com/jods4/aurelia-webpack-build/issues/22)
 * [Add convertOriginToViewUrl to Aurelia bootstrapper](https://github.com/aurelia/skeleton-navigation/issues/396#issuecomment-207823852)
 
 ## Make the Aurelia CLI available on your computer
