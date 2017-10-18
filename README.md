@@ -7,9 +7,11 @@ Getting PUG to work in Webpack
 *In main.ts add: 
 ```
     ViewLocator.prototype.convertOriginToViewUrl = function (origin) {
-      let moduleId = origin.moduleId
-      let id = (moduleId.endsWith('.js') || moduleId.endsWith('.ts')) ? moduleId.substring(0, moduleId.length - 3) : moduleId
-      return id + '.pug'
+      let moduleId = origin.moduleId;
+      let id = (moduleId.endsWith('.js') || moduleId.endsWith('.ts')) ? 
+        moduleId.substring(0, moduleId.length - 3) : 
+        moduleId;
+      return id + '.pug';
     }
 ```
 
