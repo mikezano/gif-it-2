@@ -6,7 +6,7 @@ Getting PUG to work in Webpack
 
 *You may need to:```npm install pug-html-loader --save-dev```*
 
-*In main.ts add: 
+*In main.ts function configure() add: 
 ```
     ViewLocator.prototype.convertOriginToViewUrl = function (origin) {
       let moduleId = origin.moduleId;
