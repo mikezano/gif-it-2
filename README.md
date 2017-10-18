@@ -4,6 +4,8 @@ Getting PUG to work in Webpack
 * Modify AurelaPlugin instantiation to  ```new AureliaPlugin({viewsExtensions: '.pug'})```
 * Add rule: ```{ test: /\.pug$/i, loader: [ 'html-loader', 'pug-html-loader' ] }```
 
+*You may need to:```npm install pug-html-loader --save-dev```*
+
 *In main.ts add: 
 ```
     ViewLocator.prototype.convertOriginToViewUrl = function (origin) {
