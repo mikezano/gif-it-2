@@ -80,7 +80,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       {
         test: /\.scss$/,
         use: ['css-loader', 'sass-loader'],
-        issuer: /\.[html|pug]?$/i
+        issuer: /\.pug|html?$/i
       },
   
       { test: /\.html$/i, loader: 'html-loader' },
