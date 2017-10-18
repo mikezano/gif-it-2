@@ -5,7 +5,7 @@ import {PLATFORM} from 'aurelia-pal';
 @autoinject()
 export class App {
   public router:Router;
-  public message:string = "Hi";
+  public message:string = "GIF IT";
   
   constructor(){
   }

@@ -3,15 +3,15 @@ template
 	//require(from="../components/modals/gifEmbedDialog.css")
 	section.home.au-animate
 
-	form(
-		action="http://localhost:8000/upload"
-		method="post" 
-		encType="multipart/form-data")
-		input(
-			type="file" 
-			name="gif")
+		form(
+			action="http://localhost:8000/upload"
+			method="post" 
+			encType="multipart/form-data")
+			input(
+				type="file" 
+				name="gif")
 
-		input(type="submit")
+			input(type="submit")
 
 		.gif-player
 			.current-channel
