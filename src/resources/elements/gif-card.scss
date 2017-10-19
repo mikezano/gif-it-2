@@ -6,10 +6,16 @@
     display:flex;
     justify-content:center;
     align-items: center;
+    transition: 0.2s all ease-in;
+
+    .gif-card__gif{
+        transition: 0.1s all ease-in-out;
+    }
 
     &:hover{
         .gif-card__gif{
             transform:scale(1.1);
+            box-shadow:4px 4px 8px black;
         }
     }
     &__gif{
