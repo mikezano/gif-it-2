@@ -3,7 +3,6 @@ import * as webpack from 'webpack';
 import * as project from '../aurelia.json';
 import {CLIOptions, Configuration} from 'aurelia-cli';
 import * as gulp from 'gulp';
-import processPug from './process-pug';
 import configureEnvironment from './environment';
 import * as del from 'del';
 
@@ -44,7 +43,6 @@ function clearDist() {
 const build = gulp.series(
   clearDist,
   configureEnvironment,
-  processPug,
   buildWebpack
 );
 

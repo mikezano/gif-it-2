@@ -2,5 +2,6 @@ template
   require(from="./gif-card.scss")
 
   .gif-card
-    
-    img.gif-card__gif(src.bind='src')
+    pre ${src}
+    img.gif-card__gif(src='${src}')
+    img(src="../gifs/fail.gif")
