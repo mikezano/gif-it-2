@@ -30,4 +30,17 @@ module.exports = (app, db) =>{
 			}
 		});
 	});
+
+	app.get('/uploads/all', (req, res)=>{
+
+		db.collection('uploads').find({}).toArray((err, item)=>{
+			if(err){
+				res.send({'error': 'An error has occurred'});
+			}
+			else{
+				console.log(item);
+				res.send(JSON.stringify(item));
+			}
+		});
+	});	
 };

@@ -6,7 +6,8 @@ import {GifEmbedDialog} from "../resources/elements/gif-embed-dialog";
 @autoinject()
 export class Home{
 
-    public gif:string;
+	public gif:string;
+	public out:string;
 
     constructor(
         private apiService: GifApi,
@@ -17,6 +18,10 @@ export class Home{
 	public attached(): void {
 
 		//setTimeout(() => { this.openDialog() }, 1000);
+		this.apiService.getAllGifs().then(result =>{
+			console.log(result[0]);
+			this.out = result[0];
+		});
 		// setInterval(() => {
 		// 	this.apiService.getRandomGif().then(result => {
         //         debugger;
@@ -24,7 +29,7 @@ export class Home{
 		// 	});
 
 		// }, 3000);  
-    }  
+    }
 
 	public openDialog(): void {
 		this.dialogService

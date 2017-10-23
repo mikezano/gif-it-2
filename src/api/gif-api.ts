@@ -4,11 +4,11 @@ import { ApiService } from './api-service';
 @autoinject()
 export class GifApi {
 
-    public root:string= "http://localhost:9000/";
+    public root:string= "http://localhost:8000/";
     constructor(private apiService: ApiService) { }
 
     public getAllGifs(): Promise<string[]> {
-        return this.apiService.get(`${this.root}api/Gif/GetAllGifs`, json => json);
+        return this.apiService.get(`${this.root}uploads/all`, json => json);
     }
 
     public getGifsByCategory(category: string): Promise<string[]> {
