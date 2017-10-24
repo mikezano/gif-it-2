@@ -14,7 +14,6 @@ export class App {
 
     config.title="Zano";
     config.map([
-      { route: ['', 'test'], name: 'Test',      moduleId: PLATFORM.moduleName('./indexes/test'), nav: true, title: 'Test' },
       { route: ['', 'home'], name: 'Home',      moduleId:  PLATFORM.moduleName('./indexes/home'), nav: true, title: 'Home' },
       { route: ['gifs'], name: 'Gifs',      moduleId: PLATFORM.moduleName('./indexes/gifs'), nav: true, title: 'Gifs' }
     ]);

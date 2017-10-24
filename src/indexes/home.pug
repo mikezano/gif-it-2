@@ -13,13 +13,9 @@ template
 
 			input(type="submit")
 
-		pre Hello
-		pre ${urlCreated}
-		img(src="${base64src}")
-
 		.gif-player
 			.current-channel
-				img(if.bind="gif" src.bind="gif")
+				img( src.bind="base64src")
 			img.tv(src="http://prashantsani.com/Misc/codepen/tv.svg" alt="")
 		button.push-button(click.trigger="openDialog()") Embed Gifs Into Your Site
 
@@ -44,8 +40,7 @@ template
 		)}();
 		console.log("why");
 
-
-	//img#random-gif(onload='httpGetAsync("http://localhost:5000/api/Gif/GetRandomGif", whatToDo)')
+//img#random-gif(onload='httpGetAsync("http://localhost:5000/api/Gif/GetRandomGif", whatToDo)')
 //http://stackoverflow.com/questions/36517735/script-tag-in-aurelia-view-is-not-executed
 
 

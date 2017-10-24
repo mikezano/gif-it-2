@@ -12,43 +12,21 @@ export class Home{
 	public urlCreated: string;
 	public base64src:string;
 
-    constructor(
-        private apiService: GifApi,
+	constructor(
+		private apiService: GifApi,
 		private dialogService: DialogService
-    ){
-    }
+	){}
 
 	public attached(): void {
+		setInterval(() => { this.getRandomGif() }, 3000);
+	}
 
-		//setTimeout(() => { this.openDialog() }, 1000);
-		this.apiService.getAllGifs().then((result:any) =>{
-			console.log(result[1]);
-			this.out = result[1];
-			let stuff = new Uint8Array(this.out);
-			this.gifData = new Blob([this.out.data], {type: "image/gif"});			
-			console.log(this.gifData);
-			this.urlCreated = URL.createObjectURL(this.gifData);
-			console.log(this.urlCreated);
-			this.base64src = "data:image/gif;base64," + this.out.data;
-			//this.base64src = btoa(this.out.data);
-			//console.log(this.base64src);
-			//var reader = new FileReader();
-			// reader.readAsDataURL(this.gifData); 
-			// reader.onloadend = ()=> {
-			// 			   let base64data = reader.result;
-			// 			   console.log("")
-			// 			   console.log(base64data );
-			// 			   this.base64src = base64data;
-			// }
+	public getRandomGif():void{
+		this.apiService.getRandomGif().then((result:any)=>{
+			console.log(result);
+			this.base64src = "data:image/gif;base64," + result[0].data;
 		});
-		// setInterval(() => {
-		// 	this.apiService.getRandomGif().then(result => {
-        //         debugger;
-		// 		this.gif = result;
-		// 	});
-
-		// }, 3000);  
-    }
+	}
 
 	public openDialog(): void {
 		this.dialogService

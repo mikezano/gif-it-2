@@ -2,22 +2,18 @@ import {bindable, autoinject} from 'aurelia-framework';
 
 @autoinject()
 export class GifCard {
-  @bindable
-  public src:string;
+	@bindable
+	public src:string;
 
-  public attached(){
+	public attached(){}
 
-  }
+	public srcChanged(o, n){}
 
-  public srcChanged(o, n){
-
-  }
-  public imagePath(src) {
-    console.log(src);
-   // return require(src);
-   let s = "success4.gif"
-    return require("../gifs/" + src);
-  }
+	public imagePath(src) {
+		console.log(src);
+		let s = "success4.gif"
+		return require("../gifs/" + src);
+	}
 }
 
 //Solving the require problem

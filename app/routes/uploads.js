@@ -42,5 +42,19 @@ module.exports = (app, db) =>{
 				res.send(JSON.stringify(item));
 			}
 		});
-	});	
+	});
+
+	app.get('/uploads/random', (req, res)=>{
+		
+		const details = { $sample: {size: 1} };
+		db.collection('uploads').aggregate(details, (err, item)=>{
+			if(err){
+				res.send({'error': 'An error has occurred'});
+			}
+			else{
+				console.log(item);
+				res.send(JSON.stringify(item));
+			}
+		});
+	});
 };
