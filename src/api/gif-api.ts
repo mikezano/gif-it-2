@@ -18,4 +18,8 @@ export class GifApi {
 	public getRandomGif(): Promise<string> {
 		return this.apiService.get(`${this.root}uploads/random/`, json => json);
 	}
+
+	public uploadGif(gif): Promise<string> {
+		return this.apiService.post(`${this.root}uploads`, gif, json => json);
+	}
 }

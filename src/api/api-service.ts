@@ -6,23 +6,33 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 @autoinject()
 export class ApiService {
 
-    constructor(private http: HttpClient) {
-        this.http.configure(config => {
-            config
-                .withDefaults({
-                    credentials: 'same-origin',
-                    headers: {
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                });
-        });
-    }
+	constructor(private http: HttpClient) {
+		this.http.configure(config => {
+			config
+				.withDefaults({
+					credentials: 'same-origin',
+					headers: {
+						'Accept': 'application/json',
+						'X-Requested-With': 'XMLHttpRequest'
+					}
+				});
+		});
+	}
 
-    public get<T>(url: string, done: (response) => T): Promise<T> {
+	public get<T>(url: string, done: (response) => T): Promise<T> {
 
-        return this.http.fetch(url)
-            .then(response => response.json())
-            .then(response => { return done(response); });
-    }
+		return this.http.fetch(url)
+			.then(response => response.json())
+			.then(response => { return done(response); });
+	}
+
+	public post<T>(url: string, data: any, done: (response) => T): Promise<T> {
+		
+				return this.http.fetch(url, {
+					method: 'POST',
+					body: data
+				})
+				.then(response => response.json())
+				.then(response => { return done(response); });
+			}	
 }

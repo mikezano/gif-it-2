@@ -13,6 +13,14 @@ template
 
 			input(type="submit")
 
+		form(submit.delegate="submit(gifs)")
+			input(
+				type="file"
+				name="gifs"
+				files.bind="gifs"
+				multiple)
+			button(type="submit") Upload Gifs
+
 		.gif-player
 			.current-channel
 				img( src.bind="base64src")

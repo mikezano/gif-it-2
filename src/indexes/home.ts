@@ -18,7 +18,7 @@ export class Home{
 	){}
 
 	public attached(): void {
-		setInterval(() => { this.getRandomGif() }, 3000);
+		//setInterval(() => { this.getRandomGif() }, 3000);
 	}
 
 	public getRandomGif():void{
@@ -38,5 +38,17 @@ export class Home{
 					lastName: 'Watts'
 				}
 			});
-	}    
+	}
+
+	public submit(gifs): void{
+		let formData = new FormData();
+		
+		for (let i = 0; i < gifs.length; i++) {
+			formData.append('gifs', gifs[i]);
+			console.log(gifs[i]);
+			debugger;
+			//this.apiService.uploadGif()
+		}
+		
+	}
 }
