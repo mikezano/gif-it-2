@@ -46,9 +46,11 @@ export class Home{
 		for (let i = 0; i < gifs.length; i++) {
 			formData.append('gifs', gifs[i]);
 			console.log(gifs[i]);
-			debugger;
-			//this.apiService.uploadGif()
 		}
+
+		this.apiService.uploadGif(formData).then((result)=>{
+			console.log(result);
+		});		
 		
 	}
 }

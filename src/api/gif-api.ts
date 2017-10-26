@@ -20,6 +20,7 @@ export class GifApi {
 	}
 
 	public uploadGif(gif): Promise<string> {
-		return this.apiService.post(`${this.root}uploads`, gif, json => json);
+		debugger;
+		return this.apiService.post(`${this.root}upload/`, gif, json => json);
 	}
 }

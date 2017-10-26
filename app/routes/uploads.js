@@ -11,10 +11,10 @@ module.exports = (app, db) =>{
 
 		var item = {};
 		console.log(req.files);
-		var file = req.files.gif;
+		var file = req.files.gifs;
 		item.bin = Binary(file);
 
-		return;
+	
 		//console.log(file);
 		// const id = req.params.id;
 		// const details = { '_id': new ObjectID(id)};
