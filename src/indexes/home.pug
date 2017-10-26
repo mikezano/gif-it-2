@@ -3,16 +3,6 @@ template
 	//require(from="../components/modals/gifEmbedDialog.css")
 	section.home.au-animate
 
-		form(
-			action="http://localhost:8000/upload"
-			method="post" 
-			encType="multipart/form-data")
-			input(
-				type="file" 
-				name="gif")
-
-			input(type="submit")
-
 		form(submit.delegate="submit(gifs)")
 			input(
 				type="file"

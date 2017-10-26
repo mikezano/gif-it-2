@@ -18,7 +18,7 @@ export class Home{
 	){}
 
 	public attached(): void {
-		//setInterval(() => { this.getRandomGif() }, 3000);
+		setInterval(() => { this.getRandomGif() }, 3000);
 	}
 
 	public getRandomGif():void{

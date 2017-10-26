@@ -3,23 +3,17 @@ var Binary = require('mongodb').Binary;
 
 var fileUpload = require('express-fileupload');
 
+var gifs = 'gifs';
 module.exports = (app, db) =>{
 
 	app.use(fileUpload());
 
-	app.post('/upload', (req, res)=>{
+	app.post(`/${gifs}/upload`, (req, res)=>{
 
-		var item = {};
 		console.log(req.files);
 		var file = req.files.gifs;
-		item.bin = Binary(file);
 
-	
-		//console.log(file);
-		// const id = req.params.id;
-		// const details = { '_id': new ObjectID(id)};
-		console.log("Here");
-		db.collection('uploads').insert(file, (err, item)=>{
+		db.collection(gifs).insert(file, (err, item)=>{
 			if(err){
 				console.log(item);
 				console.log(err);
@@ -27,14 +21,13 @@ module.exports = (app, db) =>{
 			}
 			else{
 				res.send(item);
-
 			}
 		});
 	});
 
-	app.get('/uploads/all', (req, res)=>{
+	app.get(`/${gifs}/all`, (req, res)=>{
 
-		db.collection('uploads').find({}).toArray((err, item)=>{
+		db.collection(gifs).find({}).toArray((err, item)=>{
 			if(err){
 				res.send({'error': 'An error has occurred'});
 			}
@@ -45,10 +38,10 @@ module.exports = (app, db) =>{
 		});
 	});
 
-	app.get('/uploads/random', (req, res)=>{
+	app.get(`/${gifs}/random`, (req, res)=>{
 		
 		const details = { $sample: {size: 1} };
-		db.collection('uploads').aggregate(details, (err, item)=>{
+		db.collection(gifs).aggregate(details, (err, item)=>{
 			if(err){
 				res.send({'error': 'An error has occurred'});
 			}

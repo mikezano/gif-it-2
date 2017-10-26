@@ -4,10 +4,17 @@ $sassColor1: hsla(0, 0%, 12%, 1);
 section.home {
 	text-align: center;
 
-	form input{
-		//border:1px solid gray;
-		font-size:20px;
-		border-radius:4px;
+	form {
+		border:1px solid gray;
+		width:auto;
+		input{
+
+			font-size:20px;
+			
+		}
+		button{
+			font-size:20px;
+		}
 	}
 	.push-button {
 		font-size:30px;
