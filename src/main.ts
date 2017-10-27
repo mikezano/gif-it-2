@@ -23,7 +23,8 @@ export function configure(aurelia: Aurelia) {
             console.log(c);
         };
     })        
-    .feature(PLATFORM.moduleName('resources/index'));
+    .feature(PLATFORM.moduleName('resources/index'))
+    .plugin(PLATFORM.moduleName('aurelia-dragula'));
 
   // Uncomment the line below to enable animation.
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));
