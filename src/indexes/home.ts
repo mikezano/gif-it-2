@@ -2,6 +2,8 @@ import {bindable, autoinject} from 'aurelia-framework';
 import { GifApi } from "../api/gif-api";
 import { DialogService } from "aurelia-dialog";
 import {GifEmbedDialog} from "../resources/elements/gif-embed-dialog";
+import {Letter} from "../resources/elements/letter"
+import {moveBefore} from 'aurelia-dragula';
 
 @autoinject()
 export class Home{
@@ -11,6 +13,7 @@ export class Home{
 	public gifData: Blob;
 	public urlCreated: string;
 	public base64src:string;
+	public letters: Letter[];
 
 	constructor(
 		private apiService: GifApi,
@@ -18,7 +21,21 @@ export class Home{
 	){}
 
 	public attached(): void {
-		setInterval(() => { this.getRandomGif() }, 3000);
+		//setInterval(() => { this.getRandomGif() }, 3000);
+		this.letters = [
+			new Letter(),
+			new Letter(),
+			new Letter()
+		];
+	}
+
+	public drop(item, target, source, sibling){
+		alert('yo');
+	}
+
+	public supportsDrag():boolean{
+		var div = document.createElement('div');
+		return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
 	}
 
 	public getRandomGif():void{

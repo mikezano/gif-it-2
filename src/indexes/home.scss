@@ -1,5 +1,10 @@
 $sassColor1: hsla(0, 0%, 12%, 1);
 
+.drag-container{
+	width:200px;
+	height: 200px;
+	border: 1px solid black;
+}
 
 section.home {
 	text-align: center;

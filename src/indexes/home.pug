@@ -1,14 +1,24 @@
 template
 	require(from="./home.scss")
+	require(from="../resources/elements/letter")
+	require(from="../resources/elements/file-dropper")
 	//require(from="../components/modals/gifEmbedDialog.css")
 	section.home.au-animate
 
-		form(submit.delegate="submit(gifs)")
-			input(
-				type="file"
-				name="gifs"
-				files.bind="gifs"
-				multiple)
+		//- dragula-and-drop(drop-fn.call="drop(item, target, source, sibling, itemVM, siblingVM)")
+		//- div.drag-source.drop-target.drag-container
+		//- 	compose(view-model.bind="letter" repeat.for="letter of letters")
+
+
+		file-dropper
+
+
+		//- form(submit.delegate="submit(gifs)")
+		//- 	input(
+		//- 		type="file"
+		//- 		name="gifs"
+		//- 		files.bind="gifs"
+		//- 		multiple)
 			button(type="submit") Upload Gifs
 
 		.gif-player
