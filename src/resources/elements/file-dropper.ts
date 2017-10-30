@@ -28,7 +28,6 @@ export class FileDropper {
 	public stop(e):void{
 		e.preventDefault();
 		e.stopPropagation();
-		
 	}
 
 	public addDragClass(e){
@@ -41,11 +40,10 @@ export class FileDropper {
 	}	
 
 	public submit(e): void{
-		debugger;
 		let gifs = e.dataTransfer.files;
 		let formData = new FormData();
 		
-		e.currentTarget.classList.add('is-uploading');
+		e.currentTarget.classList.toggle('is-uploading');
 		for (let i = 0; i < gifs.length; i++) {
 			formData.append('gifs', gifs[i]);
 			console.log(gifs[i]);
@@ -55,9 +53,12 @@ export class FileDropper {
 			alert('hi');
 			this.apiService.uploadGif(formData).then((result)=>{
 				console.log(result);
-				e.currentTarget.classList.remove('is-uploading');
+				e.currentTarget.classList.toggle('is-uploading');
+				
 			});
 		}, 100000);
 
-	}	
+	}
+
+
 }
