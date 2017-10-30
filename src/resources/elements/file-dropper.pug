@@ -1,6 +1,6 @@
 template
 	require(from="./file-dropper.scss")
-	form.box.has-advanced-upload(ref="uploader" method="post" action="" enctype="multipart/form-data")
+	form.box(ref="uploader" method="post" action="" enctype="multipart/form-data")
 		.box__input
 			input.box__file(
 				type="file" 
@@ -10,12 +10,14 @@ template
 				multiple)
 			label.message(for="file")
 				strong Choose a file
-				span.box__dragndrop  or drag it here.
-			label.is-dragover-message(for="file")
-				strong Drop!
+				span.box__dragndrop  or drag it here to upload.
 
 			button.box__button(type="submit") Upload
 		.box__uploading 
-			i Uploading &hellip;
-		.box__success Done!
+			i Uploading 
+			.rotate &hellip;
+		.box__success 
+			.done Done!
 		.box__error Error!
+		.box__drophere 
+			strong Drop Here!

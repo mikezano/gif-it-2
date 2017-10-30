@@ -21,11 +21,15 @@ template
 		//- 		multiple)
 			button(type="submit") Upload Gifs
 
+
 		.gif-player
 			.current-channel
 				img( src.bind="base64src")
 			img.tv(src="http://prashantsani.com/Misc/codepen/tv.svg" alt="")
-		button.push-button(click.trigger="openDialog()") Embed Gifs Into Your Site
+
+		button.push-button(click.trigger="openDialog()") Embed Gifs Into Your Site			
+
+
 
 	script.
 		(function(){

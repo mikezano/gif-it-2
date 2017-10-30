@@ -1,69 +1,73 @@
 .box__dragndrop,
 .box__uploading,
 .box__success,
-.box__error {
+.box__error,
+.box__drophere {
 	display: none;
+	pointer-events:none;
 }
 
 .box{
-	&.has-advanced-upload{
-		background-color: #999;
-		outline: 2px dashed black;
-
-		outline-offset: -6px;
-
-		.box__dragndrop{
-			display: inline;
-		}
-	}
-
-	.box__input{
-		display: flex;
-		height: 80px;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-
-		.box__file{
-			display: none;
-		}
-
-		.is-dragover-message{
-			display:none;
-		}
-
-	}
+	display: flex;
+	text-align:center;
+	width:400px;
+	height:70px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease-in;
+	background-color: #777;
+	outline: 2px dashed black;
+	outline-offset: -4px;
 
 	&.is-dragover{
-		background-color: grey;
+		background-color: #aaa;
+		outline-offset: -10px;
 
-		.message{
-			display: none;
-		}		
-
-		.is-dragover-message{
-			display: block;
-		}
+		.message{display: none;}
+		.box__drophere{display: block;}
 	}
 
 	&.is-uploading{
+		.box__input{display:none;}
+		.box__uploading{display: block;}
+	}
 
-		.box__input{
-			display:none;
-		}
+	&.is-done{
+		.box__input{display:none;}
+		.box__success{display: block;}
+	}
 
-		.box__uploading{
-			display: block;
-			
-		}
+	&__file{display: none;}
 
+	&__dragndrop{
+		display: inline;
 	}
 
 	&__button{
 		display:none;
 	}
 
+
+
 }
 .no-js .box__button {
 	display: block;
+}
+
+.rotate{
+	animation: rotation .2s infinite linear;
+	@keyframes rotation {
+		0%{transform: rotate(0);}
+		100%{transform: rotate(360deg);}
+	}
+}
+
+.done{
+	animation: bump 1s infinite cubic-bezier(.07,.91,.17,.99);
+	@keyframes bump {
+		0%{transform: scale(1);}
+		40%{transform: scale(1.5); opacity:1;}
+		100%{transform: scale(1); opacity:0;}
+	}
 }
