@@ -21,13 +21,14 @@ export class Home{
 	){}
 
 	public attached(): void {
-		//setInterval(() => { this.getRandomGif() }, 3000);
+		setInterval(() => { this.getRandomGif() }, 3000);
 		this.letters = [
 			new Letter(),
 			new Letter(),
 			new Letter()
 		];
 	}
+
 
 	public drop(item, target, source, sibling){
 		alert('yo');

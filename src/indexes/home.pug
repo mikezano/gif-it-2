@@ -2,34 +2,17 @@ template
 	require(from="./home.scss")
 	require(from="../resources/elements/letter")
 	require(from="../resources/elements/file-dropper")
-	//require(from="../components/modals/gifEmbedDialog.css")
+	require(from="../resources/elements/gif-embed-dialog.scss")
 	section.home.au-animate
-
-		//- dragula-and-drop(drop-fn.call="drop(item, target, source, sibling, itemVM, siblingVM)")
-		//- div.drag-source.drop-target.drag-container
-		//- 	compose(view-model.bind="letter" repeat.for="letter of letters")
-
 
 		file-dropper
 
-
-		//- form(submit.delegate="submit(gifs)")
-		//- 	input(
-		//- 		type="file"
-		//- 		name="gifs"
-		//- 		files.bind="gifs"
-		//- 		multiple)
-			button(type="submit") Upload Gifs
-
-
 		.gif-player
 			.current-channel
-				img( src.bind="base64src")
+				img( src.bind="base64src" if.bind="base64src")
 			img.tv(src="http://prashantsani.com/Misc/codepen/tv.svg" alt="")
 
 		button.push-button(click.trigger="openDialog()") Embed Gifs Into Your Site			
-
-
 
 	script.
 		(function(){

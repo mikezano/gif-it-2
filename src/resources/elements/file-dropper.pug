@@ -1,18 +1,19 @@
 template
 	require(from="./file-dropper.scss")
-	form.box(ref="uploader" method="post" action="" enctype="multipart/form-data")
+	form.box(ref="uploader" submit.delegate="submitManually(gifs)" enctype="multipart/form-data")
 		.box__input
 			input.box__file(
 				type="file" 
-				name="files[]" 
+				name="gifs" 
 				id="file" 
-				data-multiple-caption="{count} files selected" 
+				files.bind="gifs"
+				
 				multiple)
 			label(for="file")
 				strong Choose a file
-				span  or drag it here to upload.
+				span(if.bind="gifs.length == 0")  or drag it here to upload.
 
-			button.box__button(type="submit") Upload
+			button.box__button(type="submit" if.bind="gifs.length > 0") Upload
 		.box__uploading 
 			i Uploading 
 			.rotate &hellip;

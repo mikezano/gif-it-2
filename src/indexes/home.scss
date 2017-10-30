@@ -1,10 +1,5 @@
 $sassColor1: hsla(0, 0%, 12%, 1);
 
-.drag-container{
-	width:200px;
-	height: 200px;
-	border: 1px solid black;
-}
 
 section.home {
 
@@ -12,18 +7,6 @@ section.home {
 	flex-direction: column;
 	align-items: center;
 
-	// form {
-	// 	border:1px solid gray;
-	// 	width:auto;
-	// 	input{
-
-	// 		font-size:20px;
-			
-	// 	}
-	// 	button{
-	// 		font-size:20px;
-	// 	}
-	// }
 	.push-button {
 		font-size:30px;
 		padding:10px;
@@ -43,34 +26,37 @@ section.home {
 		-moz-box-shadow: 0px 9px 0px $sassColor1;
 		box-shadow: 0px 9px 0px $sassColor1;
 		outline: none;
+
+		&:active{
+			-webkit-box-shadow: 0px 2px 0px darken($sassColor1, 2%);
+			-moz-box-shadow: 0px 2px 0px darken($sassColor1, 2%);
+			box-shadow: 0px 2px 0px darken($sassColor1, 2%);
+			position: relative;
+			top: 7px;
+		}
 	}
 
-	.push-button:active {
-		-webkit-box-shadow: 0px 2px 0px darken($sassColor1, 2%);
-		-moz-box-shadow: 0px 2px 0px darken($sassColor1, 2%);
-		box-shadow: 0px 2px 0px darken($sassColor1, 2%);
-		position: relative;
-		top: 7px;
-	}
+	 .gif-player {
+		position:relative;
+		z-index:10;
+		//left:-100px;
+		 .current-channel {
+		 	position: absolute;
+			top: 180px;
+			left:30px;
+			z-index:3;
+			display:flex;
+			align-items: center;
 
-	.gif-player {
-
-		// .current-channel, .tv {
-		// 	position: absolute;
-		// 	top: 0;
-		// }
-
-		// .current-channel {
-		// 	display: flex;
-		// 	align-items: center;
-
-
-		// 	img {
-		// 		$size: 280px;
-		// 		height: $size;
-		// 		width: $size;
-		// 		top: 200px;
-		// 	}
-		// }
-	}
+			img{
+				$size: 240px;
+				height: 240px;
+				width:280px;
+			}
+		 }
+		 .tv{
+			 position:relative;
+			 z-index:10;
+		 }
+	 }
 }
