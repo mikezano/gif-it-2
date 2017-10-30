@@ -23,8 +23,7 @@
 	&.is-dragover{
 		background-color: #aaa;
 		outline-offset: -10px;
-
-		.message{display: none;}
+		.box__input{display:none;}
 		.box__drophere{display: block;}
 	}
 
@@ -39,17 +38,7 @@
 	}
 
 	&__file{display: none;}
-
-	&__dragndrop{
-		display: inline;
-	}
-
-	&__button{
-		display:none;
-	}
-
-
-
+	&__button{display:none;}
 }
 .no-js .box__button {
 	display: block;
